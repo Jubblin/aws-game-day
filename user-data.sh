@@ -23,7 +23,7 @@ service httpd start
 eval $(aws ecr get-login --region us-east-1 --no-include-email)
 image=453500636975.dkr.ecr.us-east-1.amazonaws.com/mario:latest
 docker pull $image
-docker run -p 80:8080 $image &
-docker run -p 80:8081 $image &
-docker run -p 80:8082 $image &
-docker run -p 80:8083 $image &
+docker run -p 8080:80 $image &
+docker run -p 8081:80 $image &
+docker run -p 8082:80 $image &
+docker run -p 8083:80 $image &
