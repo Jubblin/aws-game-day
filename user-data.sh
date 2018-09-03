@@ -1,5 +1,6 @@
 #!/bin/bash
 
+yum -y update
 yum install -y docker
 service docker start
 yum install -y httpd-devel
@@ -19,7 +20,9 @@ ProxyRequests off
 ProxyPass / balancer://mycluster/
 EOF
 service httpd start
+eval $(aws ecr get-login --region us-east-1 --no-include-email)
 image=453500636975.dkr.ecr.us-east-1.amazonaws.com/mario:latest
+docker pull $image
 docker run -p 80:8080 $image &
 docker run -p 80:8081 $image &
 docker run -p 80:8082 $image &
