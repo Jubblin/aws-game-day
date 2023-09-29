@@ -20,8 +20,7 @@ ProxyRequests off
 ProxyPass / balancer://mycluster/
 EOF
 service httpd start
-eval $(aws ecr get-login --region us-east-1 --no-include-email)
-image=453500636975.dkr.ecr.us-east-1.amazonaws.com/mario:latest
+image=ghcr.io/jubblin/aws-game-day:master@sha256:6c23d4c20704d201b0ae61b3b27bcda14423bf1bf30562af85f35943ca44a487
 docker pull $image
 docker run -p 8080:80 $image &
 docker run -p 8081:80 $image &
