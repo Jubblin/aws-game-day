@@ -1,4 +1,4 @@
-FROM amazonlinux:2
+FROM amazonlinux:2.0.20210617.0
 
 EXPOSE 80
 
