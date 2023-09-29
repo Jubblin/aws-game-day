@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM amazonlinux:2
 
 EXPOSE 80
 
